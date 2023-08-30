@@ -2,17 +2,13 @@
 
 if __name__ == "__main__":
     from sys import argv
-    argStr = "{:d} argument"
-    argc = len(sys.argv) - 1
-    if argc == 1:
-        argStr += ':'
-    elif argc == 0:
-        argStr += 's.'
+    arguments = len(argv) - 1
+    if arguments is 0:
+        print("{:d} arguments.".format(arguments))
+    elif arguments is 1:
+        print("{:d} argument:".format(arguments))
+        print("{:d}: {}".format(1, argv[1]))
     else:
-        argStr += 's:'
-    print(argStr.format(argc))
-    i = 0
-    for arg in sys.argv:
-        if i != 0:
-            print("{:d}: {:s}".format(i, arg))
-        i += 1
+        print("{:d} arguments:".format(arguments))
+        for i in range(1, len(argv)):
+            print("{:d}: {}".format(i, argv[i]))1
